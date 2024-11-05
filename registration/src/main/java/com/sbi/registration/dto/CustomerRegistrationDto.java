@@ -6,11 +6,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CustomerRegistrationDto {
-    private String customerId;
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String email;
-    private String mobileNumber;
+    private Integer phone;
     private String username;
     private String password;
 }

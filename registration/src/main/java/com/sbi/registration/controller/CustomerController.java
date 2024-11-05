@@ -19,11 +19,11 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
     @PostMapping("/registration")
-    public ResponseEntity<Customer> customerRegistration(@RequestBody CustomerRegistrationDto customerDto){
-        return new ResponseEntity<>(customerService.saveCustomer(customerDto), HttpStatus.OK);
+    public ResponseEntity<?> customerRegistration(@RequestBody CustomerRegistrationDto customerDto){
+        return new ResponseEntity<>(customerService.saveCustomer(customerDto), HttpStatus.CREATED);
     }
     @GetMapping("/login")
-    public ResponseEntity<String> customerLogin(@RequestBody LoginDto loginDto) {
+    public ResponseEntity<?> customerLogin(@RequestBody LoginDto loginDto) {
         logger.info("Login request received for username: "+ loginDto.getUsername());
         return new ResponseEntity<>(customerService.customerLogin(loginDto.getUsername(), loginDto.getPassword()),HttpStatus.OK);
     }
